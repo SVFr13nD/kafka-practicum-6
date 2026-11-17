@@ -4,13 +4,14 @@ import os
 import time
 import requests
 from confluent_kafka import Consumer
-from common import kafka, TOPIC, registered_schema, decode
+from common import kafka, TOPIC, registered_schema, decode, expected_ids
 base = "http://namenode:9870/webhdfs/v1"
 c = Consumer({**kafka(), "group.id": "hdfs-" + os.getenv("RUN_ID", "demo"),
               "auto.offset.reset": "earliest", "enable.auto.commit": False})
 schema = registered_schema()
 c.subscribe([TOPIC])
 count = 0
+remaining = expected_ids()
 try:
     deadline = time.monotonic() + 90
     while count < 6 and time.monotonic() < deadline:
@@ -18,6 +19,8 @@ try:
         if msg is None:
             continue
         value = decode(msg, schema)
+        if value["id"] not in remaining:
+            continue
         directory = f"/events/{TOPIC}/{msg.partition()}"
         r = requests.put(base + directory, params={"op": "MKDIRS", "user.name": "root"}, timeout=20)
         r.raise_for_status()
@@ -28,6 +31,7 @@ try:
         response = requests.put(r.headers["Location"], data=(json.dumps(value) + "\n").encode(), timeout=30)
         response.raise_for_status()
         c.commit(message=msg, asynchronous=False)
+        remaining.remove(value["id"])
         count += 1
         print(f"HDFS SAVED {path} id={value['id']} OFFSET COMMITTED")
     if count != 6:

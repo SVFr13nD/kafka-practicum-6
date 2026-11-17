@@ -23,3 +23,8 @@ def decode(message, schema):
     value = json.loads(message.value())
     validate(value, schema)
     return value
+
+def expected_ids():
+    """Exact IDs of this verification run; old records must not satisfy it."""
+    run_id = os.environ["RUN_ID"]
+    return {f"{run_id}-{i}" for i in range(6)}
