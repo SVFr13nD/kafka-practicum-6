@@ -12,6 +12,8 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Test repeat-run isolation and failed HDFS writes
+        run: python3 -m unittest discover -s tests -v
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: '1.9.8'
