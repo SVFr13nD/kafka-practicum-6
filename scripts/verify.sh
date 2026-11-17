@@ -35,10 +35,10 @@ done
 [ "$ready" = true ]
 ready=false
 for i in $(seq 1 45); do
-  if docker compose exec -T namenode hdfs dfsadmin -report 2>/dev/null | grep -q 'Live datanodes (1)'; then ready=true; break; fi
+  if docker compose exec -T namenode hdfs dfsadmin -report > "$OUT/hdfs-report.txt" 2>&1 && grep -q 'Live datanodes (1)' "$OUT/hdfs-report.txt"; then ready=true; break; fi
   sleep 3
 done
-[ "$ready" = true ]
+[ "$ready" = true ] || { cat "$OUT/hdfs-report.txt"; exit 1; }
 docker compose exec -T namenode hdfs dfsadmin -safemode wait
 docker compose build app
 docker compose run --rm -T app python app/register.py | tee "$OUT/register.txt"

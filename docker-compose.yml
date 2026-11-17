@@ -36,6 +36,7 @@ services:
     volumes: ["./.runtime:/certs:ro"]
     profiles: [tools]
   cli:
+    user: root
     image: confluentinc/cp-kafka:7.7.1
     entrypoint: ["/bin/bash", "-ec"]
     volumes: ["./.runtime:/certs:ro"]

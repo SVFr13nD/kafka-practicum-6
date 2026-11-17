@@ -4,7 +4,8 @@ import re
 from pathlib import Path
 import requests
 p = Path(".runtime")
-p.mkdir(exist_ok=True, mode=0o700)
+p.mkdir(exist_ok=True, mode=0o755)
+p.chmod(0o755)  # CA must be readable by the Schema Registry container user
 password = os.environ["KAFKA_PASSWORD"]
 if not re.fullmatch(r"[A-Za-z0-9_-]{16,}", password):
     raise ValueError("Use a random password of at least 16 letters/digits/_/- for safe env/JAAS rendering")
