@@ -1,0 +1,45 @@
+services:
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.7.1
+    ports: ["127.0.0.1:8081:8081"]
+    env_file: ["${REGISTRY_ENV:-config/registry-local.env}"]
+    volumes: ["./.runtime:/certs:ro"]
+  namenode:
+    image: apache/hadoop:3.4.1
+    hostname: namenode
+    user: root
+    entrypoint: ["/bin/bash", "-ec"]
+    command: ["test -f /data/name/current/VERSION || hdfs namenode -format -force -nonInteractive; exec hdfs namenode"]
+    ports: ["127.0.0.1:9870:9870"]
+    volumes:
+      - ./hadoop/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml:ro
+      - ./hadoop/hdfs-site.xml:/opt/hadoop/etc/hadoop/hdfs-site.xml:ro
+      - namenode:/data/name
+  datanode:
+    image: apache/hadoop:3.4.1
+    hostname: datanode
+    user: root
+    entrypoint: ["/bin/bash", "-ec"]
+    command: ["exec hdfs datanode"]
+    depends_on: [namenode]
+    volumes:
+      - ./hadoop/core-site.xml:/opt/hadoop/etc/hadoop/core-site.xml:ro
+      - ./hadoop/hdfs-site.xml:/opt/hadoop/etc/hadoop/hdfs-site.xml:ro
+      - datanode:/data/data
+  app:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    env_file: ["${CLIENT_ENV:-config/client-local.env}"]
+    environment:
+      RUN_ID: ${RUN_ID:-demo}
+    volumes: ["./.runtime:/certs:ro"]
+    profiles: [tools]
+  cli:
+    image: confluentinc/cp-kafka:7.7.1
+    entrypoint: ["/bin/bash", "-ec"]
+    volumes: ["./.runtime:/certs:ro"]
+    profiles: [tools]
+volumes:
+  namenode:
+  datanode:

@@ -1,0 +1,46 @@
+name: Test Kafka to Hadoop locally
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['evidence/**', '*.md']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.9.8'
+      - name: Validate cloud configuration without creating resources
+        run: |
+          terraform -chdir=terraform fmt
+          terraform -chdir=terraform init -backend=false
+          terraform -chdir=terraform validate
+      - name: Test real Kafka, Schema Registry and HDFS containers
+        run: bash scripts/verify.sh local
+      - name: Record execution details
+        if: always()
+        run: |
+          mkdir -p evidence/local
+          docker compose -f docker-compose.yml -f compose.local.yml logs --no-color > evidence/local/docker.log 2>&1
+          printf 'Environment: GitHub Actions, NOT Yandex Cloud\nRun: https://github.com/%s/actions/runs/%s\nCommit: %s\n' "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" "$GITHUB_SHA" > evidence/local/run.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: local-integration-evidence
+          path: evidence/local/
+      - name: Publish verified results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add evidence/local terraform/main.tf terraform/.terraform.lock.hcl
+          git reset -- evidence/local/docker.log
+          git commit -m 'Record local Kafka to HDFS test results [skip ci]'
+          git push
+      - name: Clean up containers
+        if: always()
+        run: docker compose -f docker-compose.yml -f compose.local.yml down -v

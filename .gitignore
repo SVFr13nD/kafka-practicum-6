@@ -1,0 +1,9 @@
+.env
+*.tfstate*
+*.tfvars
+.terraform/
+.runtime/
+__pycache__/
+.venv/
+evidence/cloud/*
+!evidence/cloud/README.md
