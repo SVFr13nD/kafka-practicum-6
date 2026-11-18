@@ -1,48 +1,48 @@
-<!doctype html><meta charset="utf-8"><style>body{background:#101827;color:#e5edf5;font:16px monospace;padding:24px}pre{white-space:pre-wrap;background:#1b293c;padding:16px}h2{color:#70dbce}</style><h1>Execution evidence: local</h1><p>Captured command output. Environment: local.</p><h2>subjects.json</h2><pre>[&quot;orders-value&quot;]</pre><h2>versions.json</h2><pre>[1]</pre><h2>topic-describe.txt</h2><pre>Topic: orders	TopicId: tZ4v0l34SSOHZ5KpTdUqvw	PartitionCount: 3	ReplicationFactor: 3	Configs: min.insync.replicas=2,cleanup.policy=delete,segment.bytes=134217728,retention.ms=86400000
-	Topic: orders	Partition: 0	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
-	Topic: orders	Partition: 1	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
-	Topic: orders	Partition: 2	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
-</pre><h2>producer.txt</h2><pre>DELIVERED topic=orders partition=0 offset=0 value={&quot;id&quot;: &quot;1794984752-2254-0&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 1}
-DELIVERED topic=orders partition=0 offset=1 value={&quot;id&quot;: &quot;1794984752-2254-3&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 4}
-DELIVERED topic=orders partition=1 offset=0 value={&quot;id&quot;: &quot;1794984752-2254-1&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 2}
-DELIVERED topic=orders partition=1 offset=1 value={&quot;id&quot;: &quot;1794984752-2254-4&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 5}
-DELIVERED topic=orders partition=2 offset=0 value={&quot;id&quot;: &quot;1794984752-2254-2&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 3}
-DELIVERED topic=orders partition=2 offset=1 value={&quot;id&quot;: &quot;1794984752-2254-5&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 6}
-</pre><h2>consumer.txt</h2><pre>READ partition=0 offset=0 value={&quot;id&quot;: &quot;1794984752-2254-0&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 1}
-READ partition=0 offset=1 value={&quot;id&quot;: &quot;1794984752-2254-3&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 4}
-READ partition=1 offset=0 value={&quot;id&quot;: &quot;1794984752-2254-1&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 2}
-READ partition=1 offset=1 value={&quot;id&quot;: &quot;1794984752-2254-4&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 5}
-READ partition=2 offset=0 value={&quot;id&quot;: &quot;1794984752-2254-2&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 3}
-READ partition=2 offset=1 value={&quot;id&quot;: &quot;1794984752-2254-5&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 6}
-</pre><h2>console-consumer.txt</h2><pre>{&quot;id&quot;: &quot;1794984752-2254-0&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 1}
-{&quot;id&quot;: &quot;1794984752-2254-3&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 4}
-{&quot;id&quot;: &quot;1794984752-2254-1&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 2}
-{&quot;id&quot;: &quot;1794984752-2254-4&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 5}
-{&quot;id&quot;: &quot;1794984752-2254-2&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 3}
-{&quot;id&quot;: &quot;1794984752-2254-5&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 6}
+<!doctype html><meta charset="utf-8"><style>body{background:#101827;color:#e5edf5;font:16px monospace;padding:24px}pre{white-space:pre-wrap;background:#1b293c;padding:16px}h2{color:#70dbce}</style><h1>Execution evidence: local</h1><p>Captured command output. Environment: local.</p><h2>subjects.json</h2><pre>[&quot;orders-value&quot;]</pre><h2>versions.json</h2><pre>[1]</pre><h2>topic-describe.txt</h2><pre>Topic: orders	TopicId: COYkwsDJSaKrsAZNYt4c6w	PartitionCount: 3	ReplicationFactor: 3	Configs: min.insync.replicas=2,cleanup.policy=delete,segment.bytes=134217728,retention.ms=86400000
+	Topic: orders	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: orders	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
+	Topic: orders	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+</pre><h2>producer.txt</h2><pre>DELIVERED topic=orders partition=1 offset=0 value={&quot;id&quot;: &quot;1794997150-2471-1&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 2}
+DELIVERED topic=orders partition=1 offset=1 value={&quot;id&quot;: &quot;1794997150-2471-4&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 5}
+DELIVERED topic=orders partition=0 offset=0 value={&quot;id&quot;: &quot;1794997150-2471-0&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 1}
+DELIVERED topic=orders partition=0 offset=1 value={&quot;id&quot;: &quot;1794997150-2471-3&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 4}
+DELIVERED topic=orders partition=2 offset=0 value={&quot;id&quot;: &quot;1794997150-2471-2&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 3}
+DELIVERED topic=orders partition=2 offset=1 value={&quot;id&quot;: &quot;1794997150-2471-5&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 6}
+</pre><h2>consumer.txt</h2><pre>READ partition=2 offset=0 value={&quot;id&quot;: &quot;1794997150-2471-2&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 3}
+READ partition=2 offset=1 value={&quot;id&quot;: &quot;1794997150-2471-5&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 6}
+READ partition=1 offset=0 value={&quot;id&quot;: &quot;1794997150-2471-1&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 2}
+READ partition=1 offset=1 value={&quot;id&quot;: &quot;1794997150-2471-4&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 5}
+READ partition=0 offset=0 value={&quot;id&quot;: &quot;1794997150-2471-0&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 1}
+READ partition=0 offset=1 value={&quot;id&quot;: &quot;1794997150-2471-3&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 4}
+</pre><h2>console-consumer.txt</h2><pre>{&quot;id&quot;: &quot;1794997150-2471-0&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 1}
+{&quot;id&quot;: &quot;1794997150-2471-3&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 4}
+{&quot;id&quot;: &quot;1794997150-2471-1&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 2}
+{&quot;id&quot;: &quot;1794997150-2471-4&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 5}
+{&quot;id&quot;: &quot;1794997150-2471-2&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 3}
+{&quot;id&quot;: &quot;1794997150-2471-5&quot;, &quot;product&quot;: &quot;book&quot;, &quot;quantity&quot;: 6}
 </pre><h2>services.txt</h2><pre>NAME                                  IMAGE                                   COMMAND                  SERVICE           CREATED              STATUS              PORTS
-kafka-practicum-6-datanode-1          apache/hadoop:3.4.1                     &quot;/bin/bash -ec &#x27;exec…&quot;   datanode          40 seconds ago       Up 40 seconds       
+kafka-practicum-6-datanode-1          apache/hadoop:3.4.1                     &quot;/bin/bash -ec &#x27;exec…&quot;   datanode          50 seconds ago       Up 49 seconds       
 kafka-practicum-6-kafka-1-1           apache/kafka:3.9.1                      &quot;/__cacert_entrypoin…&quot;   kafka-1           About a minute ago   Up About a minute   9092/tcp
 kafka-practicum-6-kafka-2-1           apache/kafka:3.9.1                      &quot;/__cacert_entrypoin…&quot;   kafka-2           About a minute ago   Up About a minute   9092/tcp
 kafka-practicum-6-kafka-3-1           apache/kafka:3.9.1                      &quot;/__cacert_entrypoin…&quot;   kafka-3           About a minute ago   Up About a minute   9092/tcp
-kafka-practicum-6-namenode-1          apache/hadoop:3.4.1                     &quot;/bin/bash -ec &#x27;test…&quot;   namenode          46 seconds ago       Up 40 seconds       127.0.0.1:9870-&gt;9870/tcp
-kafka-practicum-6-schema-registry-1   confluentinc/cp-schema-registry:7.7.1   &quot;/etc/confluent/dock…&quot;   schema-registry   46 seconds ago       Up 40 seconds       127.0.0.1:8081-&gt;8081/tcp
-</pre><h2>hdfs-sink.txt</h2><pre>HDFS SAVED /events/orders/2/0.json id=1794984752-2254-2 OFFSET COMMITTED
-HDFS SAVED /events/orders/2/1.json id=1794984752-2254-5 OFFSET COMMITTED
-HDFS SAVED /events/orders/1/0.json id=1794984752-2254-1 OFFSET COMMITTED
-HDFS SAVED /events/orders/1/1.json id=1794984752-2254-4 OFFSET COMMITTED
-HDFS SAVED /events/orders/0/0.json id=1794984752-2254-0 OFFSET COMMITTED
-HDFS SAVED /events/orders/0/1.json id=1794984752-2254-3 OFFSET COMMITTED
-</pre><h2>hdfs-files.txt</h2><pre>drwxr-xr-x   - root supergroup          0 2026-11-18 06:54 /events/orders/0
--rw-r--r--   1 root supergroup         62 2026-11-18 06:54 /events/orders/0/0.json
--rw-r--r--   1 root supergroup         62 2026-11-18 06:54 /events/orders/0/1.json
-drwxr-xr-x   - root supergroup          0 2026-11-18 06:54 /events/orders/1
--rw-r--r--   1 root supergroup         62 2026-11-18 06:54 /events/orders/1/0.json
--rw-r--r--   1 root supergroup         62 2026-11-18 06:54 /events/orders/1/1.json
-drwxr-xr-x   - root supergroup          0 2026-11-18 06:54 /events/orders/2
--rw-r--r--   1 root supergroup         62 2026-11-18 06:54 /events/orders/2/0.json
--rw-r--r--   1 root supergroup         62 2026-11-18 06:54 /events/orders/2/1.json
-</pre><h2>hdfs-fsck.txt</h2><pre>FSCK started by root (auth:SIMPLE) from /172.18.0.5 for path /events/orders at Wed Nov 18 06:54:06 UTC 2026
+kafka-practicum-6-namenode-1          apache/hadoop:3.4.1                     &quot;/bin/bash -ec &#x27;test…&quot;   namenode          50 seconds ago       Up 49 seconds       127.0.0.1:9870-&gt;9870/tcp
+kafka-practicum-6-schema-registry-1   confluentinc/cp-schema-registry:7.7.1   &quot;/etc/confluent/dock…&quot;   schema-registry   50 seconds ago       Up 49 seconds       127.0.0.1:8081-&gt;8081/tcp
+</pre><h2>hdfs-sink.txt</h2><pre>HDFS SAVED /events/orders/0/0.json id=1794997150-2471-0 OFFSET COMMITTED
+HDFS SAVED /events/orders/0/1.json id=1794997150-2471-3 OFFSET COMMITTED
+HDFS SAVED /events/orders/2/0.json id=1794997150-2471-2 OFFSET COMMITTED
+HDFS SAVED /events/orders/2/1.json id=1794997150-2471-5 OFFSET COMMITTED
+HDFS SAVED /events/orders/1/0.json id=1794997150-2471-1 OFFSET COMMITTED
+HDFS SAVED /events/orders/1/1.json id=1794997150-2471-4 OFFSET COMMITTED
+</pre><h2>hdfs-files.txt</h2><pre>drwxr-xr-x   - root supergroup          0 2026-11-18 10:20 /events/orders/0
+-rw-r--r--   1 root supergroup         62 2026-11-18 10:20 /events/orders/0/0.json
+-rw-r--r--   1 root supergroup         62 2026-11-18 10:20 /events/orders/0/1.json
+drwxr-xr-x   - root supergroup          0 2026-11-18 10:20 /events/orders/1
+-rw-r--r--   1 root supergroup         62 2026-11-18 10:20 /events/orders/1/0.json
+-rw-r--r--   1 root supergroup         62 2026-11-18 10:20 /events/orders/1/1.json
+drwxr-xr-x   - root supergroup          0 2026-11-18 10:20 /events/orders/2
+-rw-r--r--   1 root supergroup         62 2026-11-18 10:20 /events/orders/2/0.json
+-rw-r--r--   1 root supergroup         62 2026-11-18 10:20 /events/orders/2/1.json
+</pre><h2>hdfs-fsck.txt</h2><pre>FSCK started by root (auth:SIMPLE) from /172.18.0.6 for path /events/orders at Wed Nov 18 10:20:51 UTC 2026
 
 
 Status: HEALTHY
@@ -79,7 +79,7 @@ Erasure Coded Block Groups:
  Corrupt block groups:		0
  Missing internal blocks:	0
  Blocks queued for replication:	0
-FSCK ended at Wed Nov 18 06:54:06 UTC 2026 in 4 milliseconds
+FSCK ended at Wed Nov 18 10:20:51 UTC 2026 in 7 milliseconds
 
 
 The filesystem under path &#x27;/events/orders&#x27; is HEALTHY

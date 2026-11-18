@@ -1,8 +1,8 @@
 ClusterId:              7NXIfdXjTbeT3VzLKQYIFw
 LeaderId:               2
 LeaderEpoch:            1
-HighWatermark:          38
+HighWatermark:          41
 MaxFollowerLag:         0
-MaxFollowerLagTimeMs:   90
+MaxFollowerLagTimeMs:   195
 CurrentVoters:          [{"id": 1, "directoryId": null, "endpoints": ["CONTROLLER://kafka-1:9093"]}, {"id": 2, "directoryId": null, "endpoints": ["CONTROLLER://kafka-2:9093"]}, {"id": 3, "directoryId": null, "endpoints": ["CONTROLLER://kafka-3:9093"]}]
 CurrentObservers:       []

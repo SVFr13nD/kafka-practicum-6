@@ -1,4 +1,4 @@
-kafka-1:9092 (id: 1 rack: null) -> (
+kafka-3:9092 (id: 3 rack: null) -> (
 	Produce(0): 0 to 11 [usable: 11],
 	Fetch(1): 0 to 17 [usable: 17],
 	ListOffsets(2): 0 to 9 [usable: 9],
@@ -79,7 +79,7 @@ kafka-1:9092 (id: 1 rack: null) -> (
 	DeleteShareGroupState(86): UNSUPPORTED,
 	ReadShareGroupStateSummary(87): UNSUPPORTED
 )
-kafka-3:9092 (id: 3 rack: null) -> (
+kafka-1:9092 (id: 1 rack: null) -> (
 	Produce(0): 0 to 11 [usable: 11],
 	Fetch(1): 0 to 17 [usable: 17],
 	ListOffsets(2): 0 to 9 [usable: 9],

@@ -1,7 +1,7 @@
 NAME                                  IMAGE                                   COMMAND                  SERVICE           CREATED              STATUS              PORTS
-kafka-practicum-6-datanode-1          apache/hadoop:3.4.1                     "/bin/bash -ec 'exec…"   datanode          40 seconds ago       Up 40 seconds       
+kafka-practicum-6-datanode-1          apache/hadoop:3.4.1                     "/bin/bash -ec 'exec…"   datanode          50 seconds ago       Up 49 seconds       
 kafka-practicum-6-kafka-1-1           apache/kafka:3.9.1                      "/__cacert_entrypoin…"   kafka-1           About a minute ago   Up About a minute   9092/tcp
 kafka-practicum-6-kafka-2-1           apache/kafka:3.9.1                      "/__cacert_entrypoin…"   kafka-2           About a minute ago   Up About a minute   9092/tcp
 kafka-practicum-6-kafka-3-1           apache/kafka:3.9.1                      "/__cacert_entrypoin…"   kafka-3           About a minute ago   Up About a minute   9092/tcp
-kafka-practicum-6-namenode-1          apache/hadoop:3.4.1                     "/bin/bash -ec 'test…"   namenode          46 seconds ago       Up 40 seconds       127.0.0.1:9870->9870/tcp
-kafka-practicum-6-schema-registry-1   confluentinc/cp-schema-registry:7.7.1   "/etc/confluent/dock…"   schema-registry   46 seconds ago       Up 40 seconds       127.0.0.1:8081->8081/tcp
+kafka-practicum-6-namenode-1          apache/hadoop:3.4.1                     "/bin/bash -ec 'test…"   namenode          50 seconds ago       Up 49 seconds       127.0.0.1:9870->9870/tcp
+kafka-practicum-6-schema-registry-1   confluentinc/cp-schema-registry:7.7.1   "/etc/confluent/dock…"   schema-registry   50 seconds ago       Up 49 seconds       127.0.0.1:8081->8081/tcp

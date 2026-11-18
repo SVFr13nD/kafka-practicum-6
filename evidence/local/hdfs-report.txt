@@ -1,6 +1,6 @@
 Configured Capacity: 154894188544 (144.26 GB)
-Present Capacity: 89871396864 (83.70 GB)
-DFS Remaining: 89871372288 (83.70 GB)
+Present Capacity: 86427271168 (80.49 GB)
+DFS Remaining: 86427246592 (80.49 GB)
 DFS Used: 24576 (24 KB)
 DFS Used%: 0.00%
 Replicated Blocks:
@@ -25,18 +25,18 @@ Hostname: datanode
 Decommission Status : Normal
 Configured Capacity: 154894188544 (144.26 GB)
 DFS Used: 24576 (24 KB)
-Non DFS Used: 65006014464 (60.54 GB)
-DFS Remaining: 89871372288 (83.70 GB)
+Non DFS Used: 68450140160 (63.75 GB)
+DFS Remaining: 86427246592 (80.49 GB)
 DFS Used%: 0.00%
-DFS Remaining%: 58.02%
+DFS Remaining%: 55.80%
 Configured Cache Capacity: 0 (0 B)
 Cache Used: 0 (0 B)
 Cache Remaining: 0 (0 B)
 Cache Used%: 100.00%
 Cache Remaining%: 0.00%
 Xceivers: 0
-Last contact: Wed Nov 18 06:53:38 UTC 2026
-Last Block Report: Wed Nov 18 06:53:32 UTC 2026
+Last contact: Wed Nov 18 10:20:19 UTC 2026
+Last Block Report: Wed Nov 18 10:20:10 UTC 2026
 Num of Blocks: 0
 
 
