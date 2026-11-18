@@ -2,11 +2,11 @@ import json
 import os
 import time
 from confluent_kafka import Consumer
-from common import kafka, TOPIC, registered_schema, decode
+from common import kafka, registered_schema, decode, read_orders
 c = Consumer({**kafka(), "group.id": "reader-" + os.getenv("RUN_ID", "demo"),
               "auto.offset.reset": "earliest", "enable.auto.commit": False})
 schema = registered_schema()
-c.subscribe([TOPIC])
+read_orders(c)
 count = 0
 try:
     deadline = time.monotonic() + 90

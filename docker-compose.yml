@@ -3,7 +3,7 @@ services:
     image: confluentinc/cp-schema-registry:7.7.1
     ports: ["127.0.0.1:8081:8081"]
     env_file: ["${REGISTRY_ENV:-config/registry-local.env}"]
-    volumes: ["./.runtime:/certs:ro"]
+    volumes: ["${CERTS_DIR:-./.runtime/local}:/certs:ro"]
   namenode:
     image: apache/hadoop:3.4.1
     hostname: namenode
@@ -33,13 +33,14 @@ services:
     env_file: ["${CLIENT_ENV:-config/client-local.env}"]
     environment:
       RUN_ID: ${RUN_ID:-demo}
-    volumes: ["./.runtime:/certs:ro"]
+      START_OFFSETS: ${START_OFFSETS:-}
+    volumes: ["${CERTS_DIR:-./.runtime/local}:/certs:ro"]
     profiles: [tools]
   cli:
     user: root
-    image: confluentinc/cp-kafka:7.7.1
+    image: apache/kafka:3.9.1
     entrypoint: ["/bin/bash", "-ec"]
-    volumes: ["./.runtime:/certs:ro"]
+    volumes: ["${CERTS_DIR:-./.runtime/local}:/certs:ro"]
     profiles: [tools]
 volumes:
   namenode:

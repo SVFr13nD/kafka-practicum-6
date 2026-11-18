@@ -4,12 +4,12 @@ import os
 import time
 import requests
 from confluent_kafka import Consumer
-from common import kafka, TOPIC, registered_schema, decode
+from common import kafka, TOPIC, registered_schema, decode, read_orders
 base = "http://namenode:9870/webhdfs/v1"
 c = Consumer({**kafka(), "group.id": "hdfs-" + os.getenv("RUN_ID", "demo"),
               "auto.offset.reset": "earliest", "enable.auto.commit": False})
 schema = registered_schema()
-c.subscribe([TOPIC])
+read_orders(c)
 count = 0
 try:
     deadline = time.monotonic() + 90

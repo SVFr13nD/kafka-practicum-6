@@ -2,6 +2,7 @@ import json
 import os
 from pathlib import Path
 import requests
+from confluent_kafka import TopicPartition
 from jsonschema import validate
 TOPIC = "orders"
 REGISTRY = os.getenv("REGISTRY_URL", "http://schema-registry:8081")
@@ -23,3 +24,15 @@ def decode(message, schema):
     value = json.loads(message.value())
     validate(value, schema)
     return value
+
+
+def read_orders(consumer):
+    """For a verification batch, begin at the offsets recorded before sending."""
+    start = os.getenv("START_OFFSETS")
+    if not start:
+        consumer.subscribe([TOPIC])
+        return
+    offsets = [int(value) for value in start.split(",")]
+    if len(offsets) != 3 or min(offsets) < 0:
+        raise ValueError("Expected three non-negative start offsets for orders")
+    consumer.assign([TopicPartition(TOPIC, p, offset) for p, offset in enumerate(offsets)])

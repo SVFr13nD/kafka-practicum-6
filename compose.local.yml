@@ -1,47 +1,47 @@
+x-broker: &broker
+  image: apache/kafka:3.9.1
+  environment: &broker_env
+    CLUSTER_ID: '7NXIfdXjTbeT3VzLKQYIFw'
+    KAFKA_PROCESS_ROLES: broker,controller
+    KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka-1:9093,2@kafka-2:9093,3@kafka-3:9093
+    KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+    KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+    KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+    KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+    KAFKA_DEFAULT_REPLICATION_FACTOR: 3
+    KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+    KAFKA_MIN_INSYNC_REPLICAS: 2
+    KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
+    KAFKA_LOG_CLEANUP_POLICY: delete
+    KAFKA_LOG_RETENTION_MS: 86400000
+    KAFKA_LOG_SEGMENT_BYTES: 134217728
+    KAFKA_LOG_DIRS: /var/lib/kafka/data
+    KAFKA_HEAP_OPTS: -Xms256m -Xmx512m
+
 services:
-  zookeeper:
-    image: confluentinc/cp-zookeeper:7.7.1
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
   kafka-1:
-    image: confluentinc/cp-kafka:7.7.1
-    hostname: kafka-1
-    depends_on: [zookeeper]
+    <<: *broker
+    volumes: ["broker-1:/var/lib/kafka/data"]
     environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      <<: *broker_env
+      KAFKA_NODE_ID: 1
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
-      KAFKA_DEFAULT_REPLICATION_FACTOR: 3
-      KAFKA_MIN_INSYNC_REPLICAS: 2
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
-      KAFKA_HEAP_OPTS: -Xms256m -Xmx512m
   kafka-2:
-    image: confluentinc/cp-kafka:7.7.1
-    hostname: kafka-2
-    depends_on: [zookeeper]
+    <<: *broker
+    volumes: ["broker-2:/var/lib/kafka/data"]
     environment:
-      KAFKA_BROKER_ID: 2
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      <<: *broker_env
+      KAFKA_NODE_ID: 2
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
-      KAFKA_DEFAULT_REPLICATION_FACTOR: 3
-      KAFKA_MIN_INSYNC_REPLICAS: 2
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
-      KAFKA_HEAP_OPTS: -Xms256m -Xmx512m
   kafka-3:
-    image: confluentinc/cp-kafka:7.7.1
-    hostname: kafka-3
-    depends_on: [zookeeper]
+    <<: *broker
+    volumes: ["broker-3:/var/lib/kafka/data"]
     environment:
-      KAFKA_BROKER_ID: 3
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      <<: *broker_env
+      KAFKA_NODE_ID: 3
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-3:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
-      KAFKA_DEFAULT_REPLICATION_FACTOR: 3
-      KAFKA_MIN_INSYNC_REPLICAS: 2
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
-      KAFKA_HEAP_OPTS: -Xms256m -Xmx512m
+
+volumes:
+  broker-1:
+  broker-2:
+  broker-3:
