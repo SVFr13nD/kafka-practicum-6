@@ -1,6 +1,6 @@
 Configured Capacity: 154894188544 (144.26 GB)
-Present Capacity: 86490173440 (80.55 GB)
-DFS Remaining: 86490148864 (80.55 GB)
+Present Capacity: 89871396864 (83.70 GB)
+DFS Remaining: 89871372288 (83.70 GB)
 DFS Used: 24576 (24 KB)
 DFS Used%: 0.00%
 Replicated Blocks:
@@ -20,23 +20,23 @@ Erasure Coded Block Groups:
 -------------------------------------------------
 Live datanodes (1):
 
-Name: 172.18.0.8:9866 (kafka-practicum-6-datanode-1.kafka-practicum-6_default)
+Name: 172.18.0.7:9866 (kafka-practicum-6-datanode-1.kafka-practicum-6_default)
 Hostname: datanode
 Decommission Status : Normal
 Configured Capacity: 154894188544 (144.26 GB)
 DFS Used: 24576 (24 KB)
-Non DFS Used: 68387237888 (63.69 GB)
-DFS Remaining: 86490148864 (80.55 GB)
+Non DFS Used: 65006014464 (60.54 GB)
+DFS Remaining: 89871372288 (83.70 GB)
 DFS Used%: 0.00%
-DFS Remaining%: 55.84%
+DFS Remaining%: 58.02%
 Configured Cache Capacity: 0 (0 B)
 Cache Used: 0 (0 B)
 Cache Remaining: 0 (0 B)
 Cache Used%: 100.00%
 Cache Remaining%: 0.00%
 Xceivers: 0
-Last contact: Wed Nov 18 05:00:20 UTC 2026
-Last Block Report: Wed Nov 18 05:00:11 UTC 2026
+Last contact: Wed Nov 18 06:53:38 UTC 2026
+Last Block Report: Wed Nov 18 06:53:32 UTC 2026
 Num of Blocks: 0
 
 

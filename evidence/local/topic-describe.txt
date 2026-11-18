@@ -1,4 +1,4 @@
-Topic: orders	TopicId: oN2pTDpZSUCgtEMMtSAT2A	PartitionCount: 3	ReplicationFactor: 3	Configs: min.insync.replicas=2,cleanup.policy=delete,segment.bytes=134217728,retention.ms=86400000
-	Topic: orders	Partition: 0	Leader: 2	Replicas: 2,1,3	Isr: 2,1,3
-	Topic: orders	Partition: 1	Leader: 3	Replicas: 3,2,1	Isr: 3,2,1
-	Topic: orders	Partition: 2	Leader: 1	Replicas: 1,3,2	Isr: 1,3,2
+Topic: orders	TopicId: tZ4v0l34SSOHZ5KpTdUqvw	PartitionCount: 3	ReplicationFactor: 3	Configs: min.insync.replicas=2,cleanup.policy=delete,segment.bytes=134217728,retention.ms=86400000
+	Topic: orders	Partition: 0	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: orders	Partition: 1	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: orders	Partition: 2	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 

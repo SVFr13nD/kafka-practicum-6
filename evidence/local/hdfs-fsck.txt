@@ -1,16 +1,16 @@
-FSCK started by root (auth:SIMPLE) from /172.18.0.4 for path /events at Wed Nov 18 05:00:56 UTC 2026
+FSCK started by root (auth:SIMPLE) from /172.18.0.5 for path /events/orders at Wed Nov 18 06:54:06 UTC 2026
 
 
 Status: HEALTHY
  Number of data-nodes:	1
  Number of racks:		1
- Total dirs:			5
+ Total dirs:			4
  Total symlinks:		0
 
 Replicated Blocks:
- Total size:	342 B
+ Total size:	372 B
  Total files:	6
- Total blocks (validated):	6 (avg. block size 57 B)
+ Total blocks (validated):	6 (avg. block size 62 B)
  Minimally replicated blocks:	6 (100.0 %)
  Over-replicated blocks:	0 (0.0 %)
  Under-replicated blocks:	0 (0.0 %)
@@ -35,7 +35,7 @@ Erasure Coded Block Groups:
  Corrupt block groups:		0
  Missing internal blocks:	0
  Blocks queued for replication:	0
-FSCK ended at Wed Nov 18 05:00:56 UTC 2026 in 4 milliseconds
+FSCK ended at Wed Nov 18 06:54:06 UTC 2026 in 4 milliseconds
 
 
-The filesystem under path '/events' is HEALTHY
+The filesystem under path '/events/orders' is HEALTHY
