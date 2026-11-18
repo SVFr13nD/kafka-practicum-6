@@ -1,0 +1,1 @@
+PASS: schema registered; 3 partitions; RF=3; ISR=3; six records delivered, read and verified in HDFS.
