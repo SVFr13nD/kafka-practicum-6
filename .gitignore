@@ -7,3 +7,5 @@ __pycache__/
 .venv/
 evidence/cloud/*
 !evidence/cloud/README.md
+
+evidence/*/docker.log

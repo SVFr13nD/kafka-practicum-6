@@ -3,6 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 mode=${1:-local}
+bash scripts/check-prerequisites.sh "$mode"
 export RUN_ID=${RUN_ID:-$(date -u +%s)-$$}
 case "$mode" in
   local)
@@ -25,10 +26,16 @@ esac
 out="evidence/$mode"
 mkdir -p "$out"
 rm -f "$out/result.txt"
+printf 'Environment: %s\nRun ID: %s\nCommit: %s\n' "$mode" "$RUN_ID" "$(git rev-parse HEAD)" > "$out/run.txt"
+collect_logs() {
+  docker compose logs --no-color > "$out/docker.log" 2>&1 || true
+  docker compose ps -a > "$out/services.txt" 2>&1 || true
+}
+trap collect_logs EXIT
 cli() {
   local tool=$1
   shift
-  docker compose run --rm --no-deps -T --entrypoint "/opt/kafka/bin/$tool.sh" cli \
+  timeout 90s docker compose run --rm --no-deps -T --entrypoint "/opt/kafka/bin/$tool.sh" cli \
     --bootstrap-server "$BOOTSTRAP_SERVERS" "$@"
 }
 auth=(--command-config /certs/client.properties)
@@ -57,7 +64,7 @@ for _ in $(seq 1 45); do
   sleep 3
 done
 grep -q 'Live datanodes (1)' "$out/hdfs-report.txt" || { cat "$out/hdfs-report.txt"; exit 1; }
-docker compose exec -T namenode hdfs dfsadmin -safemode wait
+timeout 180s docker compose exec -T namenode hdfs dfsadmin -safemode wait
 docker compose build app
 
 docker compose run --rm -T app python app/register.py | tee "$out/register.txt"
@@ -85,3 +92,5 @@ docker compose exec -T namenode hdfs dfs -ls -R /events/orders | tee "$out/hdfs-
 docker compose exec -T namenode hdfs fsck /events/orders | tee "$out/hdfs-fsck.txt"
 docker compose ps > "$out/services.txt"
 python3 scripts/check-results.py "$out" "$RUN_ID"
+
+printf "\nVerification passed. Results: %s/result.txt\n" "$out"

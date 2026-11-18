@@ -32,7 +32,7 @@ terraform -chdir=terraform apply
 vm="ubuntu@$(terraform -chdir=terraform output -raw vm_ip)"
 brokers="$(terraform -chdir=terraform output -raw bootstrap_servers)"
 
-ssh "$vm" 'sudo cloud-init status --wait && git clone https://github.com/SVFr13nD/kafka-practicum-6.git'
+ssh "$vm" 'sudo cloud-init status --wait && git clone --branch reviewer-ready https://github.com/SVFr13nD/kafka-practicum-6.git'
 printf '%s\n' "$brokers" "$TF_VAR_password" "$TF_VAR_region" | ssh "$vm" '
   set -eu
   read -r BOOTSTRAP_SERVERS
