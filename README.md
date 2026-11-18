@@ -4,6 +4,26 @@
 
 Проверка выполнена в Docker Compose на GitHub Actions. В Yandex Cloud ресурсы не создавались. [Результат проверки](evidence/local/result.txt) · [Запуск и версия кода](evidence/local/run.txt)
 
+## Проверяющему
+
+Скопируйте репозиторий и запустите проверку одной командой:
+
+```bash
+git clone https://github.com/SVFr13nD/kafka-practicum-6.git
+cd kafka-practicum-6
+bash scripts/verify.sh local
+cat evidence/local/result.txt
+```
+
+Нужны Linux или Ubuntu в WSL2, работающий Docker с Compose v2, Python 3, curl, git,
+coreutils (команда timeout), интернет и около 8 ГБ памяти для Docker.
+
+[Пошаговая инструкция](docs/REVIEWER.md) включает ручную проверку, повторную отправку,
+запуск в Yandex Cloud, остановку и разбор ошибок.
+[Шесть примеров сообщений](examples/orders.jsonl) · [Примеры ответов и логов](examples/expected-output.md).
+Примеры показывают формат; реальные результаты предыдущего локального запуска приведены ниже.
+Аккаунт Yandex Cloud для локального режима не требуется.
+
 ## Что проверено
 
 | Что посмотреть | Результат |

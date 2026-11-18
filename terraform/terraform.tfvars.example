@@ -1,0 +1,6 @@
+region = "kz" # kz: three brokers in kz1-a; ru: three availability zones
+# Copy to terraform.tfvars and fill in your own values. Never commit that copy.
+folder_id = "YOUR_FOLDER_ID"
+ssh_public_key = "ssh-ed25519 YOUR_PUBLIC_KEY"
+admin_cidr = "YOUR_EXTERNAL_IPV4/32"
+# Pass the password using TF_VAR_password, e.g. openssl rand -hex 20.
