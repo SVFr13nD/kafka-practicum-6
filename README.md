@@ -9,13 +9,12 @@
 Скопируйте репозиторий и запустите проверку одной командой:
 
 ```bash
-git clone --branch reviewer-ready https://github.com/SVFr13nD/kafka-practicum-6.git
+git clone https://github.com/SVFr13nD/kafka-practicum-6.git
 cd kafka-practicum-6
 bash scripts/verify.sh local
 cat evidence/local/result.txt
 ```
 
-Доработка инструкции находится в ветке `reviewer-ready`, поэтому она указана в команде клонирования.
 Нужны Linux или Ubuntu в WSL2, работающий Docker с Compose v2, Python 3, curl, git,
 coreutils (команда timeout), интернет и около 8 ГБ памяти для Docker.
 

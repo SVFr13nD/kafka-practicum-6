@@ -19,7 +19,7 @@ Docker устанавливается отдельно. Перед запуск�
 Python-зависимости приложения устанавливаются внутри контейнера, вручную pip запускать не нужно.
 
 ```bash
-git clone --branch reviewer-ready https://github.com/SVFr13nD/kafka-practicum-6.git
+git clone https://github.com/SVFr13nD/kafka-practicum-6.git
 cd kafka-practicum-6
 bash scripts/check-prerequisites.sh local
 bash scripts/verify.sh local
@@ -98,7 +98,7 @@ CLI находятся в `/opt/kafka/bin/` образа `apache/kafka:3.9.1`.
 `terraform/terraform.tfvars.example`; заполните копию `terraform/terraform.tfvars`
 либо используйте переменные `TF_VAR_*` из инструкции Terraform. Пример пароля в репозитории отсутствует.
 
-На VM клонируйте ту же ветку `reviewer-ready`, создайте `.runtime`
+На VM клонируйте репозиторий, создайте `.runtime`
 командой `scripts/cloud-config.py` из инструкции Terraform, затем выполните:
 
 ```bash
